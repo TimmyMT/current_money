@@ -1,5 +1,11 @@
 require_relative 'boot'
 
+# Custom requires
+require 'net/http'
+require 'rexml/document'
+require 'open-uri'
+require_relative '../app/services/course_control_service'
+
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
