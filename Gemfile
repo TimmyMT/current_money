@@ -7,6 +7,7 @@ ruby '2.5.3'
 gem 'slim-rails'
 gem 'whenever', require: false
 gem 'nokogiri'
+gem 'sidekiq', '5.0.5'
 #################################
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

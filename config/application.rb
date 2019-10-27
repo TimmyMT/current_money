@@ -4,7 +4,8 @@ require_relative 'boot'
 require 'net/http'
 require 'rexml/document'
 require 'open-uri'
-require_relative '../app/services/course_control_service'
+require 'rails/all'
+# require_relative '../app/services/course_control_service'
 
 require "rails"
 # Pick the frameworks you want:
@@ -34,6 +35,8 @@ module CurrentMoney
     # the framework and any gems in your application.
 
     # Don't generate system test files.
+    config.active_job.queue_adapter = :sidekiq
+
     config.generators.system_tests = nil
   end
 end

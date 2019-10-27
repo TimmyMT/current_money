@@ -1,3 +1,3 @@
-every 1.minute do
-  runner "CourseControlService.new.call"
+every 12.hours do
+  runner "DailyCourseJob.perform_now"
 end
