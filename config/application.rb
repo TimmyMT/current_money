@@ -37,6 +37,8 @@ module CurrentMoney
     # Don't generate system test files.
     config.active_job.queue_adapter = :sidekiq
 
+    config.action_cable.disable_request_forgery_protection = false
+
     config.generators.system_tests = nil
   end
 end
