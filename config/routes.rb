@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root "currency_values#index"
+  root "courses#index"
+
+  resources :courses
 end
