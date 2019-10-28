@@ -8,7 +8,7 @@ var ready = function () {
     received: function (data) {
       var course = data.course;
       // console.log(course);
-      $(".current_course").text('Current 1 ' + course.name + ' = ' + course.value + ' RUB')
+      $(".current_course").text('Current 1 USD = ' + course.value + ' RUB')
     }
   })
 };

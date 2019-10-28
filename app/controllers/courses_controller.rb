@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   def index
-    @daily_course = Course.order(created_at: :desc).first
+    # @daily_course = Course.order(created_at: :desc).first
   end
 
   def new
