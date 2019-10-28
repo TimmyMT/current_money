@@ -1,4 +1,6 @@
 class CourseControlService
+  attr_accessor :expect_time, :time_now
+
   def initialize
     date_str = "#{DateTime.now.month}/#{DateTime.now.year}"
     @get_xml = Nokogiri::XML(open("http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=
@@ -15,22 +17,25 @@ class CourseControlService
   end
 
   def call
+    @new_course = Course.new(value: @current_course_value)
+
+    return @new_course.save! if Course.last.nil?
+
     if permission
-      @new_course = Course.new(value: @current_course_value)
-      return @new_course.save! unless Course.last.present?
       @new_course.save! if @new_course.value != Course.last.value
     end
   end
 
-  private
-
   def permission
-    @last_course = Course.last
-    return true if !@last_course.present? || @last_course.forced == false
+    last_course = Course.last
+    return true unless last_course.forced?
 
-    expect_time = "#{@last_course.day}/#{@last_course.month}/#{DateTime.now.year} #{@last_course.hour}:#{@last_course.minute}"
-    time_now = DateTime.now.strftime("%d/%m/%Y %I:%M")
+    expect_time = "#{last_course.day}/#{last_course.month}/#{DateTime.now.year} #{last_course.hour}:#{last_course.minute}"
+    time_now = "#{DateTime.now.day}/#{DateTime.now.month}/#{DateTime.now.year} #{DateTime.now.hour}:#{DateTime.now.minute}"
     ready_time = time_now >= expect_time
-    return ready_time
+
+    forced_last_course = last_course.forced?
+
+    return forced_last_course && ready_time
   end
 end

@@ -5,25 +5,25 @@ h1 Set up Forced Course
       = message
       br
   br
+  = f.text_field :value, required: true, placeholder: "#{last_forced_course.value if last_forced_course.present?}"
   = f.label :value
-  = f.text_field :value, required: true
   br
+  = f.text_field :day, required: true, placeholder: "#{last_forced_course.day if last_forced_course.present?}"
   = f.label :day
-  = f.text_field :day, required: true
   br
+  = f.text_field :month, required: true, placeholder: "#{last_forced_course.month if last_forced_course.present?}"
   = f.label :month
-  = f.text_field :month, required: true
   br
+  = f.text_field :hour, required: true, placeholder: "#{last_forced_course.hour if last_forced_course.present?}"
   = f.label :hour
-  = f.text_field :hour, required: true
   br
+  = f.text_field :minute, required: true, placeholder: "#{last_forced_course.minute if last_forced_course.present?}"
   = f.label :minute
-  = f.text_field :minute, required: true
   br
   = f.submit
 
 p class="courses_before"
   - if courses_before.present?
     - courses_before.each do |course|
-      = "1 USD = #{course.value} RUB, #{course.created_at.strftime("%d/%m/%Y %I:%M")}"
+      = "1 USD = #{course.value} RUB, #{course.day}/#{course.month}/#{DateTime.now.year} #{course.hour}:#{course.minute}"
       br
