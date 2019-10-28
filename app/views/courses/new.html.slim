@@ -1,9 +1,18 @@
 h1 Set up Forced Course
 = form_with model: @course, local: true do |f|
-  = f.label :name
-  = f.text_field :name
-  br
   = f.label :value
-  = f.text_field :value
+  = f.text_field :value, required: true
+  br
+  = f.label :day
+  = f.text_field :day, required: true
+  br
+  = f.label :month
+  = f.text_field :month, required: true
+  br
+  = f.label :hour
+  = f.text_field :hour, required: true
+  br
+  = f.label :minute
+  = f.text_field :minute, required: true
   br
   = f.submit

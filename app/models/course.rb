@@ -1,5 +1,5 @@
 class Course < ApplicationRecord
-  validates :name, :value, presence: true
+  validates :value, presence: true
 
   after_create :notify_course
 

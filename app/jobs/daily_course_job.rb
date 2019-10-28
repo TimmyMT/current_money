@@ -4,4 +4,5 @@ class DailyCourseJob < ApplicationJob
   def perform
     CourseControlService.new.call
   end
+
 end

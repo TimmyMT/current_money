@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
+    @course.forced = true
     if @course.save
       redirect_to root_path
     else
@@ -19,6 +20,6 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:name, :value)
+    params.require(:course).permit(:value, :day, :month, :hour, :minute, :forced)
   end
 end
