@@ -1,5 +1,10 @@
 h1 Set up Forced Course
 = form_with model: @course, local: true do |f|
+  - if @course.errors.present?
+    - @course.errors.full_messages.each do |message|
+      = message
+      br
+  br
   = f.label :value
   = f.text_field :value, required: true
   br
