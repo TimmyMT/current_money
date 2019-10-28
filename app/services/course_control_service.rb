@@ -15,17 +15,21 @@ class CourseControlService
   end
 
   def call
-    Course.create(value: @current_course_value) if permission
+    if permission
+      @new_course = Course.new(value: @current_course_value)
+      @new_course.save! if @new_course.value != Course.last.value
+    end
   end
 
   private
 
   def permission
     @last_course = Course.last
-    forced_last_course = @last_course.forced == true
+    return true if !@last_course.present? || @last_course.forced == false
+
     expect_time = "#{@last_course.day}/#{@last_course.month}/#{DateTime.now.year} #{@last_course.hour}:#{@last_course.minute}"
     time_now = DateTime.now.strftime("%d/%m/%Y %I:%M")
     ready_time = time_now >= expect_time
-    return forced_last_course && ready_time
+    return ready_time
   end
 end
