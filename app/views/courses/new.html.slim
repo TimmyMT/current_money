@@ -1,5 +1,5 @@
 h1 Set up Forced Course
-= form_with model: @course, local: true do |f|
+= form_for @course, remote: true do |f|
   - if @course.errors.present?
     - @course.errors.full_messages.each do |message|
       = message
@@ -21,3 +21,9 @@ h1 Set up Forced Course
   = f.text_field :minute, required: true
   br
   = f.submit
+
+p class="courses_before"
+  - if courses_before.present?
+    - courses_before.each do |course|
+      = "1 USD = #{course.value} RUB, #{course.created_at.strftime("%d/%m/%Y %I:%M")}"
+      br

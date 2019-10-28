@@ -10,11 +10,7 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     @course.forced = true
-    if @course.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    @course.save
   end
 
   private
