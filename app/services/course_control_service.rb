@@ -17,6 +17,7 @@ class CourseControlService
   def call
     if permission
       @new_course = Course.new(value: @current_course_value)
+      return @new_course.save! unless Course.last.present?
       @new_course.save! if @new_course.value != Course.last.value
     end
   end
