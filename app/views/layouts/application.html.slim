@@ -5,13 +5,18 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = action_cable_meta_tag
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-  body
-    = render "shared/user_info"
-    = render "shared/current_course"
-    = render "shared/navigate_panel"
-    br
-    = yield
+  body style="background-color: white"
+    nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4"
+      .container
+        = render "shared/navigate_panel"
+        = render "shared/user_info"
+
+    .container
+      = render "shared/current_course"
+      = yield

@@ -1,8 +1,11 @@
 - if signed_in?
-  = current_user.email
-  '
-  = link_to 'Sign out', destroy_user_session_path, method: :delete
+  .card-link style="margin-right: 0px; margin-left: auto"
+    span class="card-link text-light"
+      = current_user.email
+    '
+    = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-sm'
 - else
-  = link_to 'Sign in', new_user_session_path
-  '
-  = link_to 'Sign up', new_user_registration_path
+  .card-link style="margin-right: 0px; margin-left: auto"
+    = link_to 'Sign in', new_user_session_path, class: 'btn btn-warning btn-sm'
+    '
+    = link_to 'Sign up', new_user_registration_path, class: 'btn btn-warning btn-sm'

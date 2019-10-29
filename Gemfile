@@ -12,6 +12,9 @@ gem 'nokogiri'
 gem 'sidekiq', '5.0.5'
 gem 'devise'
 gem 'rest-client', '2.1.0'
+gem 'bootstrap', '~> 4.3.1'
+gem 'autoprefixer-rails'
+gem 'mini_racer'
 #################################
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

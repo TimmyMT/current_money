@@ -1,28 +1,39 @@
-h1 Set up Forced Course
-= form_for @course, remote: true do |f|
-  - if @course.errors.present?
-    - @course.errors.full_messages.each do |message|
-      = message
-      br
-  br
-  = f.text_field :value, required: true, placeholder: "#{last_forced_course.value if last_forced_course.present?}"
-  = f.label :value
-  br
-  = f.text_field :day, required: true, placeholder: "#{last_forced_course.day if last_forced_course.present?}"
-  = f.label :day
-  br
-  = f.text_field :month, required: true, placeholder: "#{last_forced_course.month if last_forced_course.present?}"
-  = f.label :month
-  br
-  = f.text_field :hour, required: true, placeholder: "#{last_forced_course.hour if last_forced_course.present?}"
-  = f.label :hour
-  br
-  = f.text_field :minute, required: true, placeholder: "#{last_forced_course.minute if last_forced_course.present?}"
-  = f.label :minute
-  br
-  = f.submit
+h4 Set up Forced Course
+div style="float: left"
+  = form_for @course, remote: true do |f|
+    - if @course.errors.present?
+      - @course.errors.full_messages.each do |message|
+        = message
+        br
+    = f.label :value
+    = f.text_field :value, required: true,
+            placeholder: "#{last_forced_course.value if last_forced_course.present?}",
+            class: 'form-control'
 
-p class="courses_before"
+    = f.label :day
+    = f.text_field :day, required: true,
+            placeholder: "#{last_forced_course.day if last_forced_course.present?}",
+            class: 'form-control'
+
+    = f.label :month
+    = f.text_field :month, required: true,
+            placeholder: "#{last_forced_course.month if last_forced_course.present?}",
+            class: 'form-control'
+
+    = f.label :hour
+    = f.text_field :hour, required: true,
+            placeholder: "#{last_forced_course.hour if last_forced_course.present?}",
+            class: 'form-control'
+
+    = f.label :minute
+    = f.text_field :minute, required: true,
+            placeholder: "#{last_forced_course.minute if last_forced_course.present?}",
+            class: 'form-control'
+
+    = f.submit class: 'btn btn-success brn-sm'
+
+br
+p class="courses_before" style="float: left; padding-left: 50px"
   - if courses_before.present?
     - courses_before.each do |course|
       = "1 USD = #{course.value} RUB, #{course.day}/#{course.month}/#{DateTime.now.year} #{course.hour}:#{course.minute}"

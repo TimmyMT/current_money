@@ -1,4 +1,4 @@
-=link_to 'Main page', root_path
-'
+=link_to 'Main page', root_path, class: 'card-link text-light'
 - if current_user&.admin?
-  = link_to 'Force course', new_course_path
+  = link_to 'Force course', new_course_path, class: 'card-link text-success'
+

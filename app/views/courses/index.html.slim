@@ -1,4 +1,6 @@
-h4 Dynamic course history:
-- @courses.each do |course|
-  = "#{course.value} RUB, #{course.created_at.strftime("%d/%m/%Y at %I:%M")}"
-  br
+div class="card border-primary" style="background-color: #ffe7ab"
+  .card-body
+    h4 Dynamic course history:
+    - @courses.each do |course|
+      = "#{course.value} RUB, #{course.created_at.strftime("%d/%m/%Y at %I:%M")}"
+      br
