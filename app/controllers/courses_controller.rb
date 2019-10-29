@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
+  before_action :admin_permission?, only: [:new, :create]
+
   def index
-    # @daily_course = Course.order(created_at: :desc).first
   end
 
   def new
@@ -10,10 +11,14 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     @course.forced = true
-    @course.save
+    @course.save!
   end
 
   private
+
+  def admin_permission?
+    redirect_to root_path, alert: 'Not enough pernissions!' unless current_user&.admin?
+  end
 
   def course_params
     params.require(:course).permit(:value, :day, :month, :hour, :minute, :forced)

@@ -1,6 +1,4 @@
 class CourseControlService
-  attr_accessor :expect_time, :time_now
-
   def initialize
     date_str = "#{DateTime.now.month}/#{DateTime.now.year}"
     @get_xml = Nokogiri::XML(open("http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=

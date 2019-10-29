@@ -10,6 +10,7 @@ gem 'slim-rails'
 gem 'whenever', require: false
 gem 'nokogiri'
 gem 'sidekiq', '5.0.5'
+gem 'devise'
 #################################
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
