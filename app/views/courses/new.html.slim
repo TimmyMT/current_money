@@ -6,28 +6,23 @@ div style="float: left"
         = message
         br
     = f.label :value
-    = f.text_field :value, required: true,
-            placeholder: "#{last_forced_course.value if last_forced_course.present?}",
+    = f.text_field :value, required: true, value: last_forced_course.value,
             class: 'form-control'
 
     = f.label :day
-    = f.text_field :day, required: true,
-            placeholder: "#{last_forced_course.day if last_forced_course.present?}",
+    = f.text_field :day, required: true, value: last_forced_course.day,
             class: 'form-control'
 
     = f.label :month
-    = f.text_field :month, required: true,
-            placeholder: "#{last_forced_course.month if last_forced_course.present?}",
+    = f.text_field :month, required: true, value: last_forced_course.month,
             class: 'form-control'
 
     = f.label :hour
-    = f.text_field :hour, required: true,
-            placeholder: "#{last_forced_course.hour if last_forced_course.present?}",
+    = f.text_field :hour, required: true, value: last_forced_course.hour,
             class: 'form-control'
 
     = f.label :minute
-    = f.text_field :minute, required: true,
-            placeholder: "#{last_forced_course.minute if last_forced_course.present?}",
+    = f.text_field :minute, required: true, value: last_forced_course.minute,
             class: 'form-control'
 
     = f.submit class: 'btn btn-success brn-sm'
