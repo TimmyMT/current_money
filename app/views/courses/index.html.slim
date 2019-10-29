@@ -1,1 +1,4 @@
-| Welcome!
+h4 Dynamic course history:
+- @courses.each do |course|
+  = "#{course.value} RUB, #{course.created_at.strftime("%d/%m/%Y at %I:%M")}"
+  br

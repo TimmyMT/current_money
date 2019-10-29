@@ -2,6 +2,7 @@ class CoursesController < ApplicationController
   before_action :admin_permission?, only: [:new, :create]
 
   def index
+    @courses = Course.where("created_at >= ?", DateTime.now - 1.day).order(created_at: :desc)
   end
 
   def new
