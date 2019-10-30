@@ -10,4 +10,5 @@ Used technologies:
 * Redis
 * SideKiq
 * ActionCable
+* RSpec & Capybara
 
