@@ -1,9 +1,9 @@
 class Course < ApplicationRecord
-  # NUMBER_FORMAT = /[0-9]{2}\z/i
+  VALUE_FORMAT = /(^\d+(\,\d+)?$)/i
 
   validates :value, presence: true
+  validates :value, format: { with: VALUE_FORMAT }
 
-  # after_create :notify_course
   after_commit :notify_course
 
   def notify_course

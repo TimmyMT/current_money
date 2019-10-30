@@ -29,11 +29,7 @@ RSpec.describe CourseControlService do
 
   context "if last course forced" do
     it 'permission false' do
-      last_course = Course.create(value: "30", day: DateTime.now.day.to_s,
-                                  month: DateTime.now.month.to_s,
-                                  hour: (DateTime.now.hour + 1.hour).to_s,
-                                  minute: DateTime.now.minute.to_s,
-                                  forced: true)
+      last_course = Course.create(value: "30", expect_date: (Time.now + 5.minutes).to_s, forced: true)
       courses_count_before = Course.count
       subject.call
       expect(Course.count).to_not be > courses_count_before
@@ -41,11 +37,7 @@ RSpec.describe CourseControlService do
     end
 
     it 'permission true' do
-      last_course = Course.create(value: "30", day: DateTime.now.day.to_s,
-                                  month: DateTime.now.month.to_s,
-                                  hour: DateTime.now.hour.to_s,
-                                  minute: DateTime.now.minute.to_s,
-                                  forced: true)
+      last_course = Course.create(value: "30", expect_date: (Time.now - 5.minutes).to_s, forced: true)
       courses_count_before = Course.count
       subject.call
       expect(Course.count).to be > courses_count_before

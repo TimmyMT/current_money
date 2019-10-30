@@ -22,6 +22,6 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:value, :day, :month, :hour, :minute, :forced)
+    params.require(:course).permit(:value, :expect_date, :forced)
   end
 end

@@ -30,12 +30,8 @@ class CourseControlService
     last_course = Course.last
     return true unless last_course.forced?
 
-    expect_time = "#{last_course.day}/#{last_course.month}/#{DateTime.now.year} #{last_course.hour}:#{last_course.minute}"
-    time_now = "#{DateTime.now.day}/#{DateTime.now.month}/#{DateTime.now.year} #{DateTime.now.hour}:#{DateTime.now.minute}"
-    ready_time = time_now >= expect_time
+    ready_time = last_course.expect_date.to_s < Time.now.to_s
 
-    forced_last_course = last_course.forced?
-
-    return forced_last_course && ready_time
+    return ready_time
   end
 end
