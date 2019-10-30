@@ -6,7 +6,7 @@ div style="float: left"
         = message
         br
     = f.label :value
-    = f.text_field :value, required: true, value: last_forced_course.value,
+    = f.text_field :value, required: true, value: "#{last_forced_course.value if last_forced_course.present?}",
             class: 'form-control'
     br
     = f.datetime_select :expect_date, required: true

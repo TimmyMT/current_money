@@ -12,11 +12,17 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body style="background-color: white"
+
     nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4"
       .container
         = render "shared/navigate_panel"
         = render "shared/user_info"
 
     .container
+      p class="notice"
+        = notice
+      p class="alert"
+        = alert
+
       = render "shared/current_course"
       = yield
