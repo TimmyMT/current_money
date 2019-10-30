@@ -116,7 +116,7 @@ GEM
       thor (>= 0.14, < 2.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    libv8 (7.3.492.27.1-x86_64-linux)
+    libv8 (7.3.492.27.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -299,7 +299,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   byebug
-  capybara (>= 2.15)
+  capybara (~> 3.29)
   chromedriver-helper
   coffee-rails (~> 4.2)
   database_cleaner
@@ -318,7 +318,7 @@ DEPENDENCIES
   rest-client (= 2.1.0)
   rspec-rails (~> 3.8)
   sass-rails (~> 5.0)
-  selenium-webdriver
+  selenium-webdriver (~> 3.142, >= 3.142.6)
   shoulda (~> 3.5)
   shoulda-matchers (~> 2.0)
   sidekiq (= 5.0.5)

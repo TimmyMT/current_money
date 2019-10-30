@@ -67,8 +67,8 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  gem 'capybara', '~> 3.29'
+  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.6'
   gem 'chromedriver-helper'
   gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers', '~> 2.0'

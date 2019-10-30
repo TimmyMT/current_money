@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'selenium/webdriver'
 
 ENV['RAILS_ENV'] ||= 'test'
 
@@ -43,6 +44,8 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
+
+  Capybara.javascript_driver = :selenium_chrome_headless
   #####################
 
 
